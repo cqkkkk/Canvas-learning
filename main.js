@@ -3,7 +3,9 @@ function draw() {
     var canvas = document.getElementById('tutorial1');
     if (!canvas.getContext) return;
     var ctx = canvas.getContext("2d");
+    //清空画布
     ctx.clearRect(0, 0, 500, 500);
+    //画黑色正方形
     ctx.fillStyle = "black";
     ctx.beginPath();
     ctx.fillRect(20, 20, 100, 100);
@@ -31,9 +33,10 @@ function draw() {
     ctx.arc(300, 300, 50, 0, Math.PI * 2);
     ctx.closePath();
     ctx.fill();
-    ctx.save();
+    ctx.save();  //保存当前的状态
 
     //轨迹
+    // 平移原点到太阳圆心处
     ctx.translate(300, 300);
     ctx.strokeStyle = "black";
     ctx.beginPath();
@@ -41,6 +44,7 @@ function draw() {
     ctx.closePath();
     ctx.stroke();
 
+    // 创建date对象
     let time = new Date();
     ctx.rotate(2 * Math.PI / 6 * time.getSeconds() + 2 * Math.PI / 6000 * time.getMilliseconds());
     ctx.translate(100, 0);
@@ -49,7 +53,7 @@ function draw() {
     ctx.arc(0, 0, 20, 0, 2 * Math.PI);
     ctx.closePath();
     ctx.fill();
-    ctx.restore();
+    ctx.restore();  //恢复原来保存的状态
 
     requestAnimationFrame(draw);
 
