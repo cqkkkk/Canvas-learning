@@ -53,6 +53,8 @@ function drawall(){
 
     //hourhand
     ctx.rotate(2 * Math.PI / 12 *time.getHours() + 2 * Math.PI / 720 * time.getMinutes());
+    // console.log(time.getHours());
+    // console.log(time.getMinutes());
     ctx.fillStyle = "blue";
     ctx.beginPath();
     ctx.moveTo(-15,0);
@@ -63,9 +65,12 @@ function drawall(){
     ctx.lineTo(-15,0);
     ctx.closePath();
     ctx.fill();
+    ctx.rotate(-(2 * Math.PI / 12 *time.getHours() + 2 * Math.PI / 720 * time.getMinutes()));
 
     //minutehand
     ctx.rotate(2 * Math.PI / 60 * time.getMinutes() + 2 * Math.PI / 3600 * time.getSeconds());
+    // console.log(time.getMinutes());
+    // console.log(time.getSeconds());
     ctx.fillStyle = "#3f4347";
     ctx.beginPath();
     ctx.moveTo(-10,0);
@@ -76,6 +81,7 @@ function drawall(){
     ctx.lineTo(-10,0);
     ctx.closePath();
     ctx.fill();
+    ctx.rotate(-(2 * Math.PI / 60 * time.getMinutes() + 2 * Math.PI / 3600 * time.getSeconds()));
     
     //secondhand
     ctx.rotate(2 * Math.PI / 60 * time.getSeconds() + 2 * Math.PI / 60000 * time.getMilliseconds());
