@@ -45,7 +45,7 @@ class Parent {
         ctx.rect(this.x, this.y, this.r, this.r);
         ctx.fill();
     }
-    _borderLine(x, y, border_x = [40, w - 40], border_y = [40, h - 40]) {
+    _borderLine(x, y, border_x = [0, w - 60], border_y = [0, h - 60]) {
         if (x < border_x[0] || x > border_x[1]) {
             x = Math.min(border_x[1], x);
             x = Math.max(border_x[0], x);
